@@ -1,8 +1,10 @@
 package br.com.jbst.entities;
 import java.time.Instant;
-
 import java.util.List;
 import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -50,8 +52,18 @@ public class Funcionario {
 	private String status;
 	
 	// Campo 7
+	@Column(name = "whatsapp_funcionario", length = 100, nullable = true)
+	private String whatsapp_funcionario;
+	
+	// Campo 7
+	@Column(name = "email_funcionario", length = 100, nullable = true)
+	private String email_funcionario;
+	
+	
+	// Campo 7
 	@Column(name = "matricula", length = 100, nullable = true)
 	private String matricula;
+	
 	
 	// Campo 8
 	@Column(name = "assinatura", nullable = true)
@@ -62,6 +74,7 @@ public class Funcionario {
 	
 	@ManyToOne // muitos funcionários para 1 empresa
 	@JoinColumn(name = "empresa_id", nullable = false) // O JoinColumn é para mapeamento de chave estrangeira//
+    @JsonBackReference
 	private Empresa empresa;
 
 	@ManyToOne // muitos funcionários para 1 função
@@ -69,5 +82,7 @@ public class Funcionario {
 	private Funcao funcao;
 	
 
-	
+	@ManyToOne // muitos funcionários para 1 empresa
+	@JoinColumn(name = "id_usuario_funcionario", nullable = true)
+	private Usuario usuario;
 }

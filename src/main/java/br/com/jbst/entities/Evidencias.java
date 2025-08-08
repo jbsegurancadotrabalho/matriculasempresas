@@ -21,7 +21,6 @@ import lombok.Data;
 @Table(name = "evidencias")
 public class Evidencias {
 
-// Campo 1
 @Id
 @Column(name = "idevidencias")
 private UUID idEvidencias;
@@ -44,7 +43,15 @@ private byte[] inserir_evidencias;
 
 // Campo 6
 @ManyToOne 
-@JoinColumn(name = "idmatriculas", nullable = false)
+@JoinColumn(name = "id_matricula", nullable = true)
 private Matriculas matriculas;
+
+@ManyToOne 
+@JoinColumn(name = "id_turma", nullable = true)
+private Turmas turmas;
+
+@ManyToOne 
+@JoinColumn(name = "id_empresa", nullable = true)
+private Empresa empresa;
 
 }

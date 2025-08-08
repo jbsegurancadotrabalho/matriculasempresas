@@ -1,6 +1,6 @@
 package br.com.jbst.DTO;
 
-import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 import lombok.Data;
@@ -12,6 +12,8 @@ public class GetInstrutorDTO {
 	private String instrutor;
 	private String rg;
 	private String cpf;
+	private List<GetProficienciaDTO> proficiencias;
+	private List<GetFormacaoDTO> formacoes;
 
 
 

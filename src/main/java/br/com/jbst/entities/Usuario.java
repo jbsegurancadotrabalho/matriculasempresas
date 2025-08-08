@@ -56,5 +56,8 @@ public class Usuario {
 	
 	@ManyToMany(mappedBy = "usuarios")
     private List<Matriculas> matriculas;
+	
+	@OneToMany(mappedBy = "usuario") //1 Empresa tem muitos Funcionários
+	private List<Funcionario> funcionarios;
 
 }

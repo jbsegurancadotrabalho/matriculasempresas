@@ -1,8 +1,8 @@
 package br.com.jbst.entities;
 import java.time.Instant;
-
 import java.util.List;
 import java.util.UUID;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -134,6 +134,12 @@ public class Turmas {
 	@OneToMany(mappedBy = "turmas") //1 Empresa tem muitos Funcionários
 	private List<Matriculas> matricula;
 	
+	@OneToMany(mappedBy = "turmas") //1 Empresa tem muitos Funcionários
+	private List<MatriculasGratuita> matriculas;
+	
+	@OneToMany(mappedBy = "turmas") //1 Empresa tem muitos Funcionários
+	private List<Evidencias> evidencias;
+	
 
 	  @ManyToMany
 	    @JoinTable(
@@ -143,4 +149,6 @@ public class Turmas {
 	    )
 	    private List<Instrutor> instrutores;
 	
+	 
+
 }

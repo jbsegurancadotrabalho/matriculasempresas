@@ -1,9 +1,10 @@
 package br.com.jbst.entities;
 
 import java.time.Instant;
-
 import java.util.List;
 import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -76,10 +77,14 @@ private byte[] logo;
 
 
 @OneToMany(mappedBy = "empresa") //1 Empresa tem muitos Funcionários
+@JsonManagedReference
 private List<Funcionario> funcionarios;
 
 @OneToMany(mappedBy = "empresa")
 private List<Faturamento> faturamentos;
+
+@OneToMany(mappedBy = "empresa")
+private List<Evidencias> evidencias;
 
 
 
